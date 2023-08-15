@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------------------
 # Copyright (C) Electronic Arts Inc.  All rights reserved.
 #-------------------------------------------------------------------------------------------
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.18)
 project(EASTL CXX)
 
 #-------------------------------------------------------------------------------------------
@@ -23,6 +23,7 @@ include(CommonCppFlags)
 file(GLOB EASTL_SOURCES "source/*.cpp")
 file(GLOB_RECURSE EASTL_HEADERS "include/EASTL/**.h")
 add_library(EASTL ${EASTL_SOURCES} ${EASTL_HEADERS})
+add_library(EASTL::EASTL ALIAS EASTL)
 target_compile_features(EASTL PUBLIC cxx_std_14)
 
 # include both source and headers in the files tab in Visual Studio
